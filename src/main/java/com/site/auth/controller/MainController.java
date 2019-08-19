@@ -7,14 +7,23 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.site.auth.entity.Role;
+import com.site.auth.entity.User;
+
 @Controller
 public class MainController {
 	
 	@GetMapping("/") 
 	public String index(Model model) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		model.addAttribute("isAuth", auth.isAuthenticated());
-		return "page/index"; 
+		try {
+			model.addAttribute("username", ((User) auth.getPrincipal()).getUsername());
+			model.addAttribute("isAdmin", ((User) auth.getPrincipal()).getAuthorities().contains(Role.ADMIN));
+		} catch (ClassCastException e) {
+			model.addAttribute("username", "nonAuth");
+			model.addAttribute("isAdmin", false);
+		}
+			return "page/index"; 
 	}
 	
 	@GetMapping("/login")
@@ -25,7 +34,7 @@ public class MainController {
 	{
 		model.addAttribute("error", error != null);
 		model.addAttribute("logout", logout != null);
-		return "login";
+		return "index";
 	}
 	
 }

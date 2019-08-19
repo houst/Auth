@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import com.site.auth.service.TokenAuthService;
 import com.site.auth.service.UserService;
@@ -41,12 +42,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 //		.addFilterBefore(new StatelessAuthFilter(tokenAuthService), UsernamePasswordAuthenticationFilter.class)
 		.authorizeRequests()
-		.antMatchers("/**", "/css/**", "/js/**", "/lib/**").permitAll()
+		.antMatchers("/", "/css/**", "/js/**", "/lib/**").permitAll()
 		.anyRequest().authenticated()
 		.and()
 		.formLogin().usernameParameter("email").permitAll()
 		.and()
-		.logout().permitAll();
+		.logout().permitAll()
+		.and()
+		.logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
 	}
 	
 }
