@@ -1,0 +1,66 @@
+#modalLRFormDemo a, #modalLRFormDemo a:hover {
+	color: #fff;
+}
+
+#modalLRFormDemo .modal-dialog.cascading-modal .modal-c-tabs .md-tabs {
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+    margin: -1.5rem 1rem 0 1rem;
+	display: flex;
+}
+
+#modalLRFormDemo .light-blue.darken-3 {
+    background-color: #0277bd!important;
+}
+
+#modalLRFormDemo .md-tabs {
+    box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
+    border: 0;
+    padding: .7rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: -20px;
+    background-color: #2bbbad;
+    z-index: 1;
+    position: relative;
+    border-radius: .25rem;
+}
+
+#modalLRFormDemo .md-tabs .nav-item.open .nav-link, .md-tabs .nav-link.active {
+    background-color: rgba(0,0,0,.2);
+    color: #fff;
+    transition: all 1s;
+	border-radius: .25rem;
+	border-color: transparent;
+}
+
+#modalLRFormDemo .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+    border-color: transparent;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+.navbar {
+	margin-top: 15px;
+}
+
+.dropdown .dropdown-menu.dropdown-info .dropdown-item.active, .dropdown .dropdown-menu.dropdown-info .dropdown-item:active, .dropdown .dropdown-menu.dropdown-info .dropdown-item:hover, .dropleft .dropdown-menu.dropdown-info .dropdown-item.active, .dropleft .dropdown-menu.dropdown-info .dropdown-item:active, .dropleft .dropdown-menu.dropdown-info .dropdown-item:hover, .dropright .dropdown-menu.dropdown-info .dropdown-item.active, .dropright .dropdown-menu.dropdown-info .dropdown-item:active, .dropright .dropdown-menu.dropdown-info .dropdown-item:hover, .dropup .dropdown-menu.dropdown-info .dropdown-item.active, .dropup .dropdown-menu.dropdown-info .dropdown-item:active, .dropup .dropdown-menu.dropdown-info .dropdown-item:hover {
+    background-color: #33b5e5!important;
+    box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
+	border-radius: .125rem;
+	color: #fff;
+}
+.dropdown-menu {
+	padding: .5rem .3rem;
+}
+.modal-dialog.cascading-modal .close {
+	color: inherit;
+}

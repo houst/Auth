@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{layout}">
+
+<head>
+	<title>Spring Boot Thymeleaf + Spring Security</title>
+</head>
+
+<body>
+	<div layout:fragment="content" class="container">
+
+		<div class="jumbotron">
+			<h1>User List</h1>
+			<p>
+				<table class="table table-bordered table-responsive-md table-striped text-center">
+					<thead>
+						<tr>
+							<th class="text-center">Email</th>
+							<th class="text-center">Name</th>
+							<th class="text-center">Phone number</th>
+							<th class="text-center">Roles</th>
+							<th class="text-center"> </th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:if="${users.empty}">
+								<td colspan="2"> No Books Available </td>
+							</tr>
+						<tr th:each="user : ${users}">
+							<td class="pt-3-half" contenteditable="true"><span th:text="${user.email}"></span></td>
+							<td class="pt-3-half" contenteditable="true"><span th:text="${user.username}"></span></td>
+							<td class="pt-3-half" contenteditable="true"><span th:text="${user.tel}"></span></td>
+							<td class="pt-3-half" contenteditable="true"><span th:text="${user.authorities}"></span></td>
+							<td>
+								<span class="table-edit"><a th:href="@{'/user/' + ${user.id}}"
+										class="btn btn-warning btn-rounded btn-sm my-0">Edit</a></span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</p>
+		</div>
+	</div>
+</body>
+
+</html>

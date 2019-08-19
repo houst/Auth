@@ -44,11 +44,35 @@
   		<artifactId>spring-boot-starter-web</artifactId>
   	</dependency>
   	
+  	<!-- Spring Security -->
+  	<dependency>
+  		<groupId>org.springframework.boot</groupId>
+  		<artifactId>spring-boot-starter-security</artifactId>
+  	</dependency>
+  	
+  	<!-- Token Generator -->
+  	<!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt -->
+	<dependency>
+	    <groupId>io.jsonwebtoken</groupId>
+	    <artifactId>jjwt</artifactId>
+	    <version>0.9.1</version>
+	</dependency>
+	  	
+  	
   	<!-- Template engine -->
   	<dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-thymeleaf</artifactId>
     </dependency>
+    <dependency>
+	    <groupId>nz.net.ultraq.thymeleaf</groupId>
+	    <artifactId>thymeleaf-layout-dialect</artifactId>
+	</dependency>
+	<dependency>
+	    <groupId>org.thymeleaf.extras</groupId>
+	    <artifactId>thymeleaf-extras-springsecurity5</artifactId>
+	</dependency>
+	
   	
   	<!-- JPA Data (We are going to use Repositories, Entities, Hibernate, etc...) -->
     <dependency>
