@@ -50,7 +50,7 @@
   		<artifactId>spring-boot-starter-security</artifactId>
   	</dependency>
   	
-  	<!-- Token Generator -->
+  	<!-- Token Generator (Using together with Spring Security) -->
   	<!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt -->
 	<dependency>
 	    <groupId>io.jsonwebtoken</groupId>
@@ -65,12 +65,12 @@
         <artifactId>spring-boot-starter-thymeleaf</artifactId>
     </dependency>
     <dependency>
-	    <groupId>nz.net.ultraq.thymeleaf</groupId>
-	    <artifactId>thymeleaf-layout-dialect</artifactId>
-	</dependency>
-	<dependency>
 	    <groupId>org.thymeleaf.extras</groupId>
 	    <artifactId>thymeleaf-extras-springsecurity5</artifactId>
+	</dependency>
+    <dependency>
+	    <groupId>nz.net.ultraq.thymeleaf</groupId>
+	    <artifactId>thymeleaf-layout-dialect</artifactId>
 	</dependency>
 	
   	

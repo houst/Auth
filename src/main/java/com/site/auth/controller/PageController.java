@@ -11,7 +11,7 @@ import com.site.auth.entity.Role;
 import com.site.auth.entity.User;
 
 @Controller
-public class MainController {
+public class PageController {
 	
 	@GetMapping("/") 
 	public String index(Model model) {
@@ -34,7 +34,7 @@ public class MainController {
 	{
 		model.addAttribute("error", error != null);
 		model.addAttribute("logout", logout != null);
-		return "index";
+		return "page/index";
 	}
 	
 }

@@ -39,13 +39,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+		
+		
 		http
 //		.addFilterBefore(new StatelessAuthFilter(tokenAuthService), UsernamePasswordAuthenticationFilter.class)
 		.authorizeRequests()
 		.antMatchers("/", "/css/**", "/js/**", "/lib/**").permitAll()
 		.anyRequest().authenticated()
 		.and()
-		.formLogin().usernameParameter("email").permitAll()
+		.formLogin().usernameParameter("email").loginPage("/login").permitAll()
 		.and()
 		.logout().permitAll()
 		.and()
