@@ -11,6 +11,7 @@ import lombok.NonNull;
 
 public class UserAuthentication implements Authentication {
 	
+	private static final long serialVersionUID = -4167994462779166863L;
 	private final User user;
 	private boolean authenticated = true;
 	

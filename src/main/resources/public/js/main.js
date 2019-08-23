@@ -1,58 +1,45 @@
-angular.module("login_form",[])
-    .controller("AppCtrl", function ($scope, $http) {
-        $skope.auth = {};
-        $scope.sendForm = function(auth){
-            $http({
-                method: "POST",
-                url: "/login",
-                data: $.param(auth),
-                headers: { "Content-Type" : "application/x-www-form-urlencoded" }
-            }).then(
-                (data) => {
-                    
-                },
-                (error) => {
-					
-                }
-            );
-        }
-	});
-	
+jQuery(document).ready(function ($) {
 
-	angular.module("registration_form",[])
-    .controller("AppCtrl", function ($scope, $http) {
-        $scope.auth = {};
-        let resultMessageEl = document.getElementById('resultMessage');
-        let exampleInputNameEl = document.getElementById('exampleInputName');
-        let exampleInputLoginEl = document.getElementById('exampleInputLogin');
-        let inputNameLabel = document.getElementById('inputNameLabel');
-        let inputLoginLabel = document.getElementById('inputLoginLabel');
-        exampleInputNameEl.addEventListener('input', () => {
-            inputNameLabel.style.color = 'black';
-            inputLoginLabel.style.color = 'black';
-            $scope.message = '';
-        });
-        $scope.sendForm = function(auth){
-            $http({
-                method: "POST",
-                url: "/api/reg_form",
-                data: $.param(auth),
-                headers: { "Content-Type" : "application/x-www-form-urlencoded" }
-            }).then(
-                (data) => {
-                    resultMessageEl.style.color = 'green';
-                    $scope.message = 'Успешно зарегистрирован';
-                    exampleInputNameEl.value = '';
-                    exampleInputLoginEl.value = '';
-                },
-                (error) => {
-                    resultMessageEl.style.color = 'red';
-                    inputNameLabel.style.color = 'red';
-                    inputLoginLabel.style.color = 'red';
-                    exampleInputNameEl.value = '';
-                    exampleInputLoginEl.value = '';
-                    $scope.message = 'При регистрации произошла ошибка';
-                }
-            );
-        }
-    });
+	/**
+	 * Login form AJAX handler
+	 */
+	$('#login-form').submit(function (event) {
+		event.preventDefault();
+		
+		var form = $(this);
+		var invalidData = form.find(".alertify-log-error");
+		var data = {
+			email: $('input[name="email"]').val(),
+			password: $('input[name="password"]').val(),
+			_csrf: $('input[name="_csrf"]').val()
+		};
+
+		$.ajax({
+			data: data,
+			timeout: 1000,
+			type: 'POST',
+			url: '/login',
+			beforeSend: function() {
+				form.jmspinner();
+			},
+			complete: function(){
+				form.jmspinner(false);
+			}
+		}).done((responseText, statusText, response) => {
+			invalidData.hide();
+			window.location = "/?logged";
+		}).fail((response, statusText) => {
+			sleep(1500); //TODO REMOVE IN PROD
+			invalidData.show();
+		});
+	});
+
+	/**
+	 * Delay for a number of milliseconds
+	 */
+	function sleep(delay) {
+		var start = new Date().getTime();
+		while (new Date().getTime() < start + delay);
+	}
+
+});

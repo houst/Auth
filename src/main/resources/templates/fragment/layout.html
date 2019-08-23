@@ -6,23 +6,31 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+	<title>Layout</title>
+
 	<!-- MDBootstrap -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-	<link href="/lib/mdb-4.8.8/css/bootstrap.min.css" rel="stylesheet">
-	<link href="/lib/mdb-4.8.8/css/mdb.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/lib/mdb-4.8.8/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/lib/mdb-4.8.8/css/mdb.min.css">
+
+	<!-- JMSpinner CSS -->
+	<link rel="stylesheet" href="/lib/ajax-loader-jquery-css3-jmspinner/jm.spinner.min.css">
+
+	<!-- Alertify CSS -->
+	<link rel="stylesheet" href="/lib/alertify/alertify.min.css">
 
 	<!-- Custom styles -->
-	<link href="/css/style.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
 	<!--header.html  that's here  -->
-	<div th:replace="header :: header"></div>
+	<div th:replace="fragment/header :: header"></div>
 
 	<div layout:fragment="content"></div>
 
 	<!--footer.html  that's here  -->
-	<div th:replace="footer :: footer"></div>
+	<div th:replace="fragment/footer :: footer"></div>
 
 	<!-- MDBootstrap -->
 	<script type="text/javascript" src="/lib/mdb-4.8.8/js/jquery-3.4.1.min.js"></script>
@@ -30,7 +38,10 @@
 	<script type="text/javascript" src="/lib/mdb-4.8.8/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/lib/mdb-4.8.8/js/mdb.min.js"></script>
 
-	<script type="text/javascript" src="/lib/angular.min.js"></script>
+	<!-- JMSpinner (required jQuery) -->
+	<script type="text/javascript" src="/lib/ajax-loader-jquery-css3-jmspinner/jm.spinner.js"></script>
+
+	<!-- Main JS -->
 	<script type="text/javascript" src="/js/main.js"></script>
 </body>
 

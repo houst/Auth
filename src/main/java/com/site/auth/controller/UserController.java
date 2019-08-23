@@ -26,14 +26,14 @@ public class UserController {
 	@GetMapping
 	public String userList(Model model) {
 		model.addAttribute("users", userRepository.findAll());
-		return "page/user-list";
+		return "user-list";
 	}
 	
 	@GetMapping("{user}")
 	public String userEdit(@PathVariable User user, Model model) {
 		model.addAttribute("user", user);
 		model.addAttribute("roles", Role.values());
-		return "page/user-edit";
+		return "user-edit";
 	}
 	
 	@PostMapping
