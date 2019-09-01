@@ -17,7 +17,7 @@ For the versions available, see the [tags on this repository](https://github.com
 
 ## Authors
 
-* **Oleh Litvinenko** - *Initial work*
+* **Oleh Litvinenko**
 
 ## License
 
